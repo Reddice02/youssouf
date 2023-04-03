@@ -1,0 +1,150 @@
+﻿@page
+@model IndexModel 
+@{
+    ViewData["Title"] = "Home page";
+    
+}
+
+<div class="main-container" style="">
+	<div class="xs-pd-20-10 pd-ltr-20">
+		<div class="page-header">
+			<div class="row">
+				<div class="col-md-6 col-sm-12">
+					<div class="title">
+						<h4>Tableau de bord</h4>
+					</div>
+					<nav aria-label="breadcrumb" role="navigation">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item">Accueil</li>
+							<li class="breadcrumb-item active" aria-current="page">Tableau de bord</li>
+						</ol>
+					</nav>
+				</div>
+				<div class="col-md-6 col-sm-12 text-right">
+					<div class="">
+                       
+						<script>
+							var date = new Date();
+							var day = date.getDate();
+							var month = date.toLocaleString('default', { month: 'long' });
+							var year = date.getFullYear();
+							document.write("<br>"  + month +" " + year);
+						</script>
+						<!--<div class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" asp-area="" asp-page="/calendar">Reunion</a>
+							 js	<a class="dropdown-item" href="#">Policies</a>
+								<a class="dropdown-item" href="#">View Assets</a>
+                        </div>-->
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row clearfix progress-box">
+			<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+                <!-- <a class=" " asp-area="" asp-page="/processus" function=javascript:;>
+				<div class="card-box pd-30 height-100-p">
+					<div class=" progress-box text-center" style="background-color:#072175; box-shadow: 19px 5px 5px gray;">
+						 js<input type="text" class="align-items-center" value="" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#1b00ff" data-angleOffset="180" readonly>
+
+						<br /><br /><br />	<h5 class="text-white padding-bottom-15 h5 text-center">CREATION PROCESSUS </h5>
+						<span class="d-block"> <i class="fa text-light-green fa-line-chart"></i></span>
+					</div>
+				</div>
+                </a>-->
+			</div>
+           <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+                	 <a class=" " asp-area="" asp-page="/rapport" function=javascript:;>
+				<div class="card-box pd-30 height-100-p">
+					<div class=" text-center" style="background-color:#072175; box-shadow: 19px 5px 5px gray;">
+							<!--			 <input type="text" class="knob dial2" value="70" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#00e091" data-angleOffset="180" readonly>-->
+						<br /><br /><br />		<h5 class="text-white padding-top-10 h5">RAPPORT AUDIT</h5>
+						<span class="d-block"><i class="fa text-light-green fa-line-chart"></i></span>
+					</div>
+				</div>
+                </a>
+			</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+				 <a class=" " asp-area="" asp-page="/suiviaudit" function=javascript:;>
+				<div class="card-box pd-30 height-100-p">
+					<div class="progress-box text-center" style="background-color:#072175; box-shadow: 19px 5px 5px gray;">
+						<!-- js	 <input type="text" class="knob dial3" value="90" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#f56767" data-angleOffset="180" readonly>-->
+						<br /><br /><br />			<h5 class="text-white padding-top-10 h5">SUIVI AUDIT</h5>
+						<span class="d-block"> <i class="fa text-light-orange fa-line-chart"></i></span>
+					</div>
+				</div>
+				</a>
+			</div>	
+			<!-- <div class="col-lg-3 col-md-6 col-sm-12 mb-30">
+				<div class="card-box pd-30 height-100-p">
+					<div class="progress-box text-center" style="background-color:#072175; box-shadow: 19px 5px 5px gray;">
+						js <input type="text" class="knob dial4" value="65" data-width="120" data-height="120" data-linecap="round" data-thickness="0.12" data-bgColor="#fff" data-fgColor="#a683eb" data-angleOffset="180" readonly>
+						<br /><br /><br />			<h5 class="text-white padding-top-10 h5">Point nature</h5>
+						<span class="d-block"><i class="fa text-light-purple fa-line-chart"></i></span>
+					</div>
+				</div>
+			</div>
+            </div>-->
+		<!-- js	<div class="row">
+				<div class="col-lg-4 col-md-6 col-sm-12 mb-30">
+					<div class="card-box pd-30 pt-10 height-100-p">
+						<h2 class="mb-30 h4">Browser Visit</h2>
+						<div class="browser-visits">
+							<ul>
+								<li class="d-flex flex-wrap align-items-center">
+									<div class="icon"><img src="vendors/images/chrome.png" alt=""></div>
+									<div class="browser-name">Google Chrome</div>
+									<div class="visit"><span class="badge badge-pill badge-primary">50%</span></div>
+								</li>
+								<li class="d-flex flex-wrap align-items-center">
+									<div class="icon"><img src="vendors/images/firefox.png" alt=""></div>
+									<div class="browser-name">Mozilla Firefox</div>
+									<div class="visit"><span class="badge badge-pill badge-secondary">40%</span></div>
+								</li>
+								<li class="d-flex flex-wrap align-items-center">
+									<div class="icon"><img src="vendors/images/safari.png" alt=""></div>
+									<div class="browser-name">Safari</div>
+									<div class="visit"><span class="badge badge-pill badge-success">40%</span></div>
+								</li>
+								<li class="d-flex flex-wrap align-items-center">
+									<div class="icon"><img src="vendors/images/edge.png" alt=""></div>
+									<div class="browser-name">Microsoft Edge</div>
+									<div class="visit"><span class="badge badge-pill badge-warning">20%</span></div>
+								</li>
+								<li class="d-flex flex-wrap align-items-center">
+									<div class="icon"><img src="vendors/images/opera.png" alt=""></div>
+									<div class="browser-name">Opera Mini</div>
+									<div class="visit"><span class="badge badge-pill badge-info">20%</span></div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>-->
+		<!-- js	<div class="col-lg-8 col-md-6 col-sm-12 mb-30">
+				<div class="card-box pd-30 pt-10 height-100-p">
+					<h2 class="mb-30 h4">World Map</h2>
+					<div id="browservisit" style="width:100%!important; height:380px"></div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-7 col-md-12 col-sm-12 mb-30">
+				<div class="card-box pd-30 height-100-p">
+					<h4 class="mb-30 h4">Compliance Trend</h4>
+					<div id="compliance-trend" class="compliance-trend"></div>
+				</div>
+			</div>
+			<div class="col-lg-5 col-md-12 col-sm-12 mb-30">
+				<div class="card-box pd-30 height-100-p">
+					<h4 class="mb-30 h4">Records</h4>
+					<div id="chart" class="chart"></div>
+				</div>
+			</div>
+		</div>-->
+		<!-- js<div class="footer-wrap pd-20 mb-20 card-box">
+			DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+		</div>-->
+	</div>
+</div>
+</div>
+
+

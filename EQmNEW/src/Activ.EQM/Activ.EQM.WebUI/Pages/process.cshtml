@@ -1,0 +1,28 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.ProcessModel
+@{
+    ViewData["Title"] = "Process page";
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="Process.js"></script>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Process</h1>
+    <form name="formulaire" id="formulaire" action="/">
+        <div>
+            <div><input type="text" name="Title" id="Title"  placeholder="Title" /></div>
+            <div><textarea name="Description" id="Description"  placeholder="Description"></textarea></div>
+            <div><input type="text" name="TurnaroundTimes" id="TurnaroundTimes"  placeholder="TurnaroundTimes" /></div>
+            <div><textarea name="Participants" id="Participants" placeholder="Participants"></textarea></div>
+            <div><textarea name="ThirdPartyProcesses" id="ThirdPartyProcesses" placeholder="ThirdPartyProcesses" ></textarea></div>
+            <div><input type="text" name="Manager" id="Manager" placeholder="Manager" /></div>
+            <div><input type="text" name="CreateBy" id="CreateBy" placeholder="CreateBy" /></div>
+            <div><input type="date" name="Created" id="Created"  placeholder="Created" /></div>
+            <div>
+                <input type="button" name="Enregistrer" id="Enregistrer" value="Enregistrer"/>
+                <input type="button" name="Modifier" id="Modifier" value="Modifier"/>
+                <input type="button" name="Supprimer" id="Supprimer" value="Supprimer"/>
+            </div>
+        </div>
+    </form>
+</div>

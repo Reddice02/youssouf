@@ -1,0 +1,66 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.actionpointModel
+@{
+    ViewData["Title"] = "Action Point page";
+}
+
+@section scripts {
+    <script type="text/javascript" src="~/js/Script.js"></script>
+}
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Accueil</li>
+                    <li class="breadcrumb-item active" aria-current="page">Point d'action</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-md-6 col-sm-12 text-right">
+            <div class="dropdown">
+                <a asp-area="" asp-page="/ajoutactionpoint" class="btn btn-primary btn-sm" function=javascript:; role="button">
+                        <i class="fi-page-add">
+                            Ajouter
+                        </i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-box mb-30">
+    <div class="pd-20">
+        <h4 class="text-blue h4">Point d'action</h4>
+    </div>
+    <div class="pb-20">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="table-plus datatable-nosort">Titre</th>
+                    <th>Description</th>
+                    <th>Niveau du point d'action</th>
+                    <th>Priorité des points d'action</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="corps">
+                <script type="text/javascript">
+                    let infos='';
+                    fetch('http://localhost:5000/ActionPoint')
+                    .then(res =>res.json())
+                    .then(data => {
+                        for(let item of data){
+                                infos += `<tr><td>${item.title}</td><td>${item.description}</td><td>${item.actionPointLevel}</td><td>${item.actionPointPriority}</td><td><button Onclick="detail(${item.actionPointId},'detailactionpoint')" class="btn btn-light">Détail</button>&nbsp;<button class="btn btn-warning" Onclick="modifier(${item.actionPointId},'editactionpoint')">Modifier</button>&nbsp;<button class="btn btn-danger" Onclick="supprimer('http://localhost:5000/ActionPoint',${item.actionPointId},'actionpoint')">Supprimer</button></td></tr>`;
+                        }
+                        document.getElementById("corps").innerHTML = infos;
+                    })
+                </script>
+
+            </tbody>
+        </table>
+    </div>
+</div>

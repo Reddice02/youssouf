@@ -1,0 +1,114 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.detailprocessusModel
+
+@{
+    ViewData["Title"] = "Détail Processus page";
+}
+
+@section scripts {
+    <script type="text/javascript" src="~/js/Script.js"></script>
+}
+
+                       
+<!-- Default Basic Forms Start -->
+				<div class="pd-20 card-box mb-30">
+					<div class="clearfix">
+						<div class="pull-left">
+							<h4 class="text-blue h4">Processus</h4>
+						</div>
+						
+					</div>
+				
+										<form id="form" method="post">
+
+											<script type="text/javascript">
+
+												var identifiant = sessionStorage.getItem("detail");
+												let titre ;
+												let Description ;
+												let TurnaroundTimes ;
+												let Participants ;
+												let ThirdPartyProcesses ;
+												let Manager ;
+												let Created ;
+
+												fetch('http://localhost:5000/Process/' + identifiant)
+													.then(res => res.json())
+													.then(data => {
+														console.log(data);
+														console.log(data.title);
+														titre = `${data.title}`;
+														Description = `${data.description}`;
+														TurnaroundTimes = `${data.turnaroundTimes}`;
+														Participants = `${data.participants}`;
+														ThirdPartyProcesses = `${data.thirdPartyProcesses}`;
+														Manager = `${data.manager}`;
+														Created = `${data.created}`;
+
+														//console.log(titre);
+
+														document.getElementById("titre").value = titre;
+														document.getElementById('description').value = Description;
+														document.getElementById('delai').value = TurnaroundTimes;
+														document.getElementById('participant').value = Participants;
+														document.getElementById('processus').value = ThirdPartyProcesses;
+														document.getElementById('manager').value = Manager;
+														document.getElementById('created').value = Created;
+
+													});
+
+												//console.log(titre);
+											</script>
+											<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Titre</label>
+							<div class="col-sm-12 col-md-10">
+								<input class="form-control"  id="titre" type="text" placeholder="titre">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Description</label>
+							<div class="col-sm-12 col-md-10">
+						<textarea class="form-control" id="description" rows="4" cols="112"></textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Delais d'execution</label>
+							<div class="col-sm-12 col-md-10">
+								<input class="form-control" id="delai" type="text">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Participants</label>
+							<div class="col-sm-12 col-md-10">
+							 <textarea class="form-control" id="participant" rows="4" cols="112"></textarea>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Processus tiers</label>
+							<div class="col-sm-12 col-md-10">
+								 <input type="text" id="processus" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Manager</label>
+							<div class="col-sm-12 col-md-10">
+								      <input type="text" id="manager" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Cree par</label>
+							<div class="col-sm-12 col-md-10">
+                                    <input type="text" id="created" class="form-control">
+							</div>
+						</div>
+						     <div class="text-center">
+
+								<button type="button" onclick="retour('processus');" class="btn btn-danger btn-sm">Retour</button>
+                                </div>
+							
+</form>
+							
+						</div>
+					</div>
+				</div>
+				<!-- Default Basic Forms End -->

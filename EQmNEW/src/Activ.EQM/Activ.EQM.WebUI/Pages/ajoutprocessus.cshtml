@@ -1,0 +1,130 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.ajoutprocessusModel
+@{
+    ViewData["Title"] = "Ajout Processus page";
+}
+
+@section scripts {
+    <!--<script type="text/javascript" src="~/js/Script.js"></script>-->
+    <script type="text/javascript">
+
+        function ajouter() {
+               var comboBox = document.getElementById("processus");
+            var selectedOption = comboBox.options[comboBox.selectedIndex];
+            var selectedId = selectedOption.getAttribute("attr.data-value");
+            //var form = document.querySelector('form');
+            //var data = new FormData(form);
+            var t = document.getElementById("titre").value;
+            var d = document.getElementById("description").value;
+            var turn = document.getElementById("delai").value;
+            var p = document.getElementById("participant").value;
+            var m = document.getElementById("manager").value;
+            var third = document.getElementById("processus").value;
+            var create = document.getElementById("created").value;
+
+            var data = {
+                Title : t,
+                Description : d,
+                TurnaroundTimes : turn,
+                Participants : p,
+                Manager: m,
+                ThirdPartyProcesses: third,
+                CreateBy: create
+            }
+
+            console.log(data);
+
+            fetch('http://localhost:5000/Process', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            alert("Enregistrement reussi !");
+            location.replace('https://localhost:7135/processus');
+
+        }
+        
+    </script>
+}
+
+
+<!-- Default Basic Forms Start -->
+				<div class="pd-20 card-box mb-30">
+					<div class="clearfix">
+						<div class="pull-left">
+							<h4 class="text-blue h4">Processus</h4>
+						</div>
+						
+					</div>
+					<form>
+                  
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Titre</label>
+							<div class="col-sm-12 col-md-10">
+								<input class="form-control"  id="titre" type="text" placeholder="titre">
+							</div>
+						</div>
+
+
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Description</label>
+							<div class="col-sm-12 col-md-10">
+						<textarea class="form-control" id="description" rows="4" cols="112"></textarea>
+							</div>
+						</div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">
+                    Delais d'execution
+                </label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" id="delai" type="text">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2  col-form-label">
+                    Participants
+                </label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" id="delai" type="text">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2  col-form-label">
+                    Processus tiers
+                </label>
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="processus" class="form-control">
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2  col-form-label">
+                    Manager
+                </label>
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="manager" class="form-control">
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2  col-form-label">Cree par</label>
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="created" class="form-control">
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="reset" class="btn btn-danger btn-sm">Annuler</button>
+
+                <button type="button" onclick="ajouter();" class="btn btn-primary btn-sm">Ajouter</button>
+            </div>
+</form>
+							
+						
+				<!-- Default Basic Forms End -->

@@ -1,0 +1,158 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.ajoutauditModel
+@{
+    ViewData["Title"] = "Ajout audit page";
+}
+
+@section scripts {
+
+    <script type="text/javascript">
+
+        function ajouter() {
+
+            var comboBox = document.getElementById("audit");
+            var selectedOption = comboBox.options[comboBox.selectedIndex];
+            var selectedId = selectedOption.getAttribute("attr.data-value");
+
+            var p = document.getElementById("processus").value;
+            var a = document.getElementById("titre").value;
+            var b = document.getElementById("description").value;
+            var c = document.getElementById("startDateExpected").value;
+            var d = document.getElementById("endDateExpected").value;
+            var e = document.getElementById("startDateExpected").value;
+            var f = document.getElementById("endDateExpected").value;
+            var g = document.getElementById("report").value;
+            var h = document.getElementById("reference").value;
+            var create = document.getElementById("created").value;
+
+            var data = {
+                ProcessID: parseInt(selectedId),
+                Title: a,
+                Description:b,
+                StartDateEffective:c,
+                EndDateEffective:d,
+                StartDateExpected:e,
+                EndDateExpected:f,
+                Report:g,
+                Reference:h,
+                CreateBy: create
+            }
+
+            console.log(data);
+
+            if(a!='' && selectedId !=0 && create!=0){
+                fetch('http://localhost:5000/Audit', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                alert("Enregistrement reussi !");
+                location.replace('https://localhost:7135/audit1');
+            }
+
+            else {
+                alert("Veillez renseigner correctement les champs");
+            }
+
+        }
+
+    </script>
+}
+
+        <!-- Default Basic Forms Start -->
+    <div class="pd-20 card-box mb-30">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h4 class="text-blue h4">Audit</h4>
+            </div>
+
+        </div>
+        <form>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Processus</label>
+                <div class="col-sm-12 col-md-10">
+                    <select class="form-control" id="processus">
+                        <!--<option>Selectionner un processus</option>-->
+
+                        <script type="text/javascript">
+                            let donnees = '';
+                            fetch('http://localhost:5000/Process')
+                            .then(res => res.json())
+                            .then(data =>{
+                                for(let item of data){
+                                    donnees += `<option attr.data-value=${item.processId}>${item.title}</option>`
+                                }
+                                document.getElementById('processus').innerHTML = donnees;
+                            })
+                        </script>
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Titre</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" id="titre" type="text">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Description</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" id="description" type="text" />
+                </div>
+            </div>
+            <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Date de debut Effective</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" id="startDateEffective" type="date">
+                </div>
+            </div>
+            <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Date de Fin Effective</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" id="endDateEffective" type="date" />
+                </div>
+            </div>
+            <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Date du debut prévu</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" id="startDateExpected" type="date">
+                </div>
+            </div>
+            <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Date de fin prévu</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" id="endDateExpected" type="date" />
+                </div>
+            </div>
+            <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Report</label>
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="report" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Reference</label>
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="reference" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Cree par</label>
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="created" class="form-control">
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="reset" class="btn btn-danger btn-sm">Annuler</button>
+                <button type="button" onclick="ajouter();" class="btn btn-primary btn-sm">Ajouter</button>
+            </div>
+
+        </form>
+
+    </div>
+                   </div>
+                    </div>
+    <!-- Default Basic Forms End -->

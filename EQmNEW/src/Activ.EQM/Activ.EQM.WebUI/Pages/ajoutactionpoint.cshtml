@@ -1,0 +1,155 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.ajoutactionpointModel
+@{
+    ViewData["Title"] = "Ajout Action Point page";
+}
+
+@section scripts {
+    <script type="text/javascript">
+
+        function ajouter() {
+
+            var comboBox = document.getElementById("naturepoint");
+            var selectedOption = comboBox.options[comboBox.selectedIndex];
+            var selectedId = selectedOption.getAttribute("attr.data-value");
+
+            var comboBox1 = document.getElementById("audit");
+            var selectedOption1 = comboBox1.options[comboBox1.selectedIndex];
+            var selectedId1 = selectedOption1.getAttribute("attr.data-value1");
+
+
+            var t = document.getElementById("titre").value;
+            var d = document.getElementById("description").value;
+            var n = document.getElementById("niveau").value;
+            var p = document.getElementById("priorite").value;
+            var s = document.getElementById("thirdPartyProcessStep").value;
+            var create = document.getElementById("created").value;
+
+            var data = {
+                natureId: parseInt(selectedId),
+                auditId: parseInt(selectedId1),
+                Title: t,
+                Description: d,
+                actionPointLevel: parseInt(n),
+                actionPointPriority: parseInt(p),
+                thirdPartyProcessStep: s,
+                CreateBy: create
+            }
+
+            console.log(data);
+
+            fetch('http://localhost:5000/ActionPoint', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            alert("Enregistrement reussi !");
+            location.replace('https://localhost:7135/actionpoint');
+
+        }
+
+    </script>
+
+}
+
+<!-- Default Basic Forms Start -->
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Plan action</h4>
+        </div>
+
+    </div>
+    <form>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Point nature</label>
+            <div class="col-sm-12 col-md-10">
+                <select class="form-control" id="naturepoint">
+                    <!--<option>Selectionner un processus</option>-->
+
+                    <script type="text/javascript">
+                        let donnees = '';
+                        fetch('http://localhost:5000/ActionPointNature')
+                            .then(res => res.json())
+                            .then(data => {
+                                for (let item of data) {
+                                    donnees += <option attr.data-value=${item.natureId}>${item.title}</option>`;
+                                }
+                                document.getElementById('naturepoint').innerHTML = donnees;
+                            })
+                    </script>
+
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Audit</label>
+            <div class="col-sm-12 col-md-10">
+                <select class="form-control" id="audit">
+                    <!--<option>Selectionner un processus</option>-->
+
+                    <script type="text/javascript">
+                        let infos = '';
+                        fetch('http://localhost:5000/Audit')
+                            .then(res => res.json())
+                            .then(data => {
+                                for (let item of data) {
+                                    infos += `<option attr.data-value1=${item.auditId}>${item.title}</option>`;
+                                }
+                                document.getElementById('audit').innerHTML = infos;
+                            })
+                    </script>
+
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Titre</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="titre" type="text" placeholder="titre">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Description</label>
+            <div class="col-sm-12 col-md-10">
+                <textarea class="form-control" id="description" rows="4" cols="112"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Niveau</label>
+            <div class="col-sm-12 col-md-10">
+                <input type="text" id="niveau" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Priorité </label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="priorite" type="text">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Etape du processus tiers</label>
+            <div class="col-sm-12 col-md-10">
+                <input type="text" id="thirdPartyProcessStep" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Creer Par</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="created" type="text">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="reset" class="btn btn-danger btn-sm">Annuler</button>
+            <button type="button" onclick="ajouter();" class="btn btn-primary btn-sm">Ajouter</button>
+        </div>
+
+    </form>
+</div>
+                           </div>
+                            </div>
+<!-- Default Basic Forms End -->

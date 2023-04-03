@@ -1,0 +1,75 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.detailpointnatureModel
+@{
+	ViewData["Title"] = "Detail audit page";
+}
+@section scripts {
+    <script type="text/javascript" src="~/js/Script.js"></script>
+}
+
+                       
+<!-- Default Basic Forms Start -->
+				<div class="pd-20 card-box mb-30">
+					<div class="clearfix">
+						<div class="pull-left">
+							<h4 class="text-blue h4">Point nature</h4>
+						</div>
+						
+					</div>
+				
+										<form id="form" method="post">
+
+		<script>
+
+			let ident = sessionStorage.getItem("detail");
+			let titre = '';
+			let create = '';
+			let date = '';
+
+			fetch('http://localhost:5000/ActionPointNature/' + ident)
+				.then(res => res.json())
+				.then(data => {
+					console.log(data);
+
+					titre += `${data.title}`;
+					create += `${data.createBy}`;
+					date += `${data.created}`;
+
+					document.getElementById("titre").value = titre;
+					document.getElementById("createBy").value = create;
+					document.getElementById("date").value = date;
+				});
+
+		</script>
+
+
+			<div class="form-group row">
+				<label class="col-sm-12 col-md-2 col-form-label">Titre</label>
+				<div class="col-sm-12 col-md-10">
+					<input class="form-control" id="titre" type="text">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-12 col-md-2 col-form-label">Cree par</label>
+				<div class="col-sm-12 col-md-10">
+					<input type="text" id="createBy" class="form-control">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="col-sm-12 col-md-2 col-form-label">Date et heure</label>
+				<div class="col-sm-12 col-md-10">
+					<input class="form-control" id="date" type="text">
+				</div>
+			</div>
+
+			
+			<div class="text-center">
+
+				<button type="button" onclick="retour('pointnature');" class="btn btn-danger btn-sm">Retour</button>
+            </div>
+							
+</form>
+							
+			</div>
+					</div>
+				</div>

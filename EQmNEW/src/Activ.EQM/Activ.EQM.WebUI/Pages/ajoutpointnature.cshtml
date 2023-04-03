@@ -1,0 +1,75 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.ajoutpointnatureModel
+@{
+    ViewData["Title"] = " Ajout Point Nature page";
+}
+
+@section scripts {
+
+    <script type="text/javascript">
+
+        function ajouter() {
+            var comboBox = document.getElementById("point nature");
+            var selectedOption = comboBox.options[comboBox.selectedIndex];
+            var selectedId = selectedOption.getAttribute("attr.data-value");
+
+            var t = document.getElementById("titre").value;
+            var create = document.getElementById("created").value;
+
+            var data = {
+                Title: t,
+                CreateBy: create
+            }
+
+            console.log(data);
+
+            fetch('http://localhost:5000/ActionPointNature', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            alert("Enregistrement reussi !");
+            location.replace('https://localhost:7135/pointnature');
+
+        }
+
+    </script>
+}
+
+    <!-- Default Basic Forms Start -->
+    <div class="pd-20 card-box mb-30">
+        <div class="clearfix">
+            <div class="pull-left">
+                <h4 class="text-blue h4">Point nature</h4>
+            </div>
+
+        </div>
+        <form>
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Titre</label>
+                <div class="col-sm-12 col-md-10">
+                    <input class="form-control" id="titre" type="text" placeholder="titre">
+                </div>
+            </div>
+            
+            
+            <div class="form-group row">
+                <label class="col-sm-12 col-md-2 col-form-label">Cree par</label>
+                <div class="col-sm-12 col-md-10">
+                    <input type="text" id="created" class="form-control">
+                </div>
+            </div>
+         
+            <div class="text-center">
+                <button type="reset" class="btn btn-danger btn-sm">Annuler</button>
+                <button type="button" onclick="ajouter();" class="btn btn-primary btn-sm">Enregistrer</button>
+            </div>
+
+        </form>
+
+    </div>
+                       </div>
+                        </div>
+    <!-- Default Basic Forms End -->

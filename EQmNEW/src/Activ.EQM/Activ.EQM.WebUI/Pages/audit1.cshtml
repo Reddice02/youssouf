@@ -1,0 +1,67 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.auditModel
+@{
+    ViewData["Title"] = "Audit page";
+}
+
+@section scripts {
+    <script type="text/javascript" src="~/js/Script.js"></script>
+}
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Accueil</li>
+                    <li class="breadcrumb-item active" aria-current="page">Audit</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-md-6 col-sm-12 text-right">
+            <div class="dropdown">
+                    <a asp-area="" asp-page="/ajoutaudit" class="btn btn-primary btn-sm" function=javascript:; role="button"> <i class="fi-page-add"> Ajouter   </i></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-box mb-30">
+    <div class="pd-20">
+        <h4 class="text-blue h4">Audit</h4>
+    </div>
+    <div class="pb-20">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="table-plus datatable-nosort">Titre</th>
+                    <th>Description</th>
+                    <th>Reference</th>
+                    <!--<th>Processus</th>-->
+                    <th>Date debut effective</th>
+                    <th>Date de fin effective</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="corps">
+                <script type="text/javascript">
+                    let infos = '';
+
+                    fetch('http://localhost:5000/Audit')
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            for (let item of data) {
+                                    infos += <tr><td>${ item.title } </td><td>${item.description}</td > <td>${ item.reference } </td><td>${item.startDateEffective}</td > <td>${ item.endDateEffective } </td><td><button Onclick="detail(${item.auditId},'detailaudit')" class="btn btn-light"><i class="fi-list"> Détail </i > </button>&nbsp;<button class="btn btn-warning" Onclick="modifier(${item.auditId},'editaudit')"><i class="fi-page-edit"> Détail Modifier</i > </button>&nbsp;<button class="btn btn-danger" Onclick="supprimer('http:/ / localhost: 5000 / Audit',${item.auditId},'audit1')"><i class="fi-page-delete">Supprimer</i></button></td></tr>;
+                            }
+                            document.getElementById('corps').innerHTML = infos;
+                            //place.innerHTML = infos;
+                        });
+
+                </script>
+
+            </tbody>
+        </table>
+    </div>
+</div>

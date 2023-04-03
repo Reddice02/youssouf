@@ -1,0 +1,80 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.auditModel
+@{
+    ViewData["Title"] = "Audit page";
+}
+
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card my-4">
+                <div class="card-header p-0 position-relative mt-n2 mx-0 z-index-1">
+                    <div class="ms-md-1 pe-md-1 d-flex align-items-left">
+                    </div>
+                    <div class="bg-gradient-primary shadow-primary border-radius-lg pt-2 pb-2">
+                        <table class="table align-items-center mb-0" cellspacing="15">
+                            <tr>
+                                <td>
+                                    <h6 class="text-white text-capitalize ps-3">Audit</h6>
+                                </td>
+                                <td class="col-lg-1">
+                                    <a class="btn bg-gradient-primary mt-4 w-21" href="ajoutaudit.html" type="button">Ajouter</a>
+                                </td>
+                                <td class="col-lg-1">
+                                    <a class="btn bg-gradient-primary mt-4 w-21" href="modificationaudit.html" type="button">Modifier</a>
+                                </td>
+                                <td class="col-lg-2">
+                                    <a class="btn bg-gradient-primary mt-4 w-21" href="suppressionaudit.html" type="button">Supprimer</a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="table-responsive p-0">
+                <table class="table align-items-center mb-5">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" name="">Titre</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">reference</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Processus</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date de creation</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Actions</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody id="corps">
+                            <script type="text/javascript">
+                                let infos = '';
+                                let titre;
+                                function afficherTitreProcessus(let id){
+                                    fetch('http://localhost:5000/Process/'+id
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            console.log(data);
+                                            for (let item of data) {
+                                                titre = item.title;
+                                            }
+                                            return titre;
+                                        });
+                                }
+                                fetch('http://localhost:5000/audit')
+                                    .then(res => res.json())
+                                    .then(data => {
+                                        console.log(data);
+                                        for (let item of data) {
+                                            infos += `<tr><td>${item.title}</td><td>${item.description}</td><td>${item.reference}</td><td>`afficherTitreProcessus(`${item.processId}`)`</td><td>${item.created}</td><td><button onClick="detail()" attr.data-value=${item.processId} class="btn btn-light">Détail</button>&nbsp;<button onClick="edit()" class="btn btn-warning" attr.data-value=${item.processId}>Modifier</button>&nbsp;<button onClick="delete()" class="btn btn-danger" attr.data-value=${item.processId}>Supprimer</button></td></tr>`;
+                                        }
+                                        document.getElementById('corps').innerHTML = infos;
+                                        //place.innerHTML = infos;
+                                    });
+                            </script>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

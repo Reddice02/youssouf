@@ -1,0 +1,45 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Activ.EQM.WebUI/1.0.0": {
+        "dependencies": {
+          "RazorJS": "0.4.3"
+        },
+        "runtime": {
+          "Activ.EQM.WebUI.dll": {}
+        }
+      },
+      "RazorJS/0.4.3": {
+        "runtime": {
+          "lib/RazorEngine.dll": {
+            "assemblyVersion": "2.1.4113.149",
+            "fileVersion": "2.1.0.0"
+          },
+          "lib/RazorJS.dll": {
+            "assemblyVersion": "0.4.3.0",
+            "fileVersion": "0.4.3.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Activ.EQM.WebUI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RazorJS/0.4.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Bu94TJwi4+b+RTJCrlJWlCJJ+tjAdEyadmNg9l6/Xv7feOagW9XUFx+Gbnz2Cx/t3M0mXJOHk4Ci4tcAVTd0sw==",
+      "path": "razorjs/0.4.3",
+      "hashPath": "razorjs.0.4.3.nupkg.sha512"
+    }
+  }
+}

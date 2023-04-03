@@ -1,0 +1,68 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.affichagepointnatureModel
+@{
+    ViewData["Title"] = "Point Nature page";
+}
+
+
+@section scripts {
+    <script type="text/javascript" src="~/js/Script.js"></script>
+}
+
+
+<div class="page-header">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="title">
+            </div>
+            <nav aria-label="breadcrumb" role="navigation">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Accueil</li>
+                    <li class="breadcrumb-item active" aria-current="page">Point Nature</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="col-md-6 col-sm-12 text-right">
+            <div class="dropdown">
+                <a asp-area="" asp-page="/ajoutpointnature" class="btn btn-primary btn-sm" function=javascript:; role="button">
+                        <i class="fi-page-add">
+                            Ajouter
+                        </i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card-box mb-30">
+    <div class="pd-20">
+        <h4 class="text-blue h4">Point nature</h4>
+    </div>
+    <div class="pb-20">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="table-plus datatable-nosort">Titre</th>
+                    <th>Date de creation</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="corps">
+                <script type="text/javascript">
+                    let infos = '';
+                    let lien = 'http://localhost:5000/ActionPointNature';
+                    fetch('http://localhost:5000/ActionPointNature')
+                        .then(res => res.json())
+                        .then(data => {
+                            console.log(data);
+                            for (let item of data) {
+                                    infos += <tr><td>${ item.title } </td><td>${item.created}</td > <td><button Onclick="detail(${item.natureId},'detailpointnature');" class="btn btn-light" > <i class="fi-list" > Détail < /i></button >& nbsp; <button class="btn btn-warning" Onclick = "modifier(${item.natureId},'editpointnature');" > <i class="fi-page-edit"> Modifier </i></button >& nbsp; <button class="btn btn-danger" Onclick = "supprimer('http:/ / localhost: 5000 / ActionPointNature',${item.natureId},'pointnature')" > <i class="fi-page-delete">Supprimer</i></button></td > </tr>;
+                            }
+                            document.getElementById('corps').innerHTML = infos;
+                        });
+                </script>
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,160 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Activ.EQM.WebUI
+build_property.RootNamespace = Activ.EQM.WebUI
+build_property.ProjectDir = C:\Users\maria\source\repos\EQMserme-lastbranch\EQMserme-lastbranch\EQmNEW\src\Activ.EQM\Activ.EQM.WebUI\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\maria\source\repos\EQMserme-lastbranch\EQMserme-lastbranch\EQmNEW\src\Activ.EQM\Activ.EQM.WebUI
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/actionplan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWN0aW9ucGxhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/actionpoint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWN0aW9ucG9pbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/afficherrapport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWZmaWNoZXJyYXBwb3J0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/ajoutactionplan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWpvdXRhY3Rpb25wbGFuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/ajoutactionpoint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWpvdXRhY3Rpb25wb2ludC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/ajoutaudit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWpvdXRhdWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/ajoutpointnature.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWpvdXRwb2ludG5hdHVyZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/ajoutprocessus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWpvdXRwcm9jZXNzdXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/ajoutsuivi.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYWpvdXRzdWl2aS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/audit1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcYXVkaXQxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/calendar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcY2FsZW5kYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/detailactionplan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZGV0YWlsYWN0aW9ucGxhbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/detailactionpoint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZGV0YWlsYWN0aW9ucG9pbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/detailaudit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZGV0YWlsYXVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/detailpointnature.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZGV0YWlscG9pbnRuYXR1cmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/detailprocessus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZGV0YWlscHJvY2Vzc3VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/editactionplan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZWRpdGFjdGlvbnBsYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/editactionpoint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZWRpdGFjdGlvbnBvaW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/editaudit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZWRpdGF1ZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/editpointnature.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZWRpdHBvaW50bmF0dXJlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/editprocessus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcZWRpdHByb2Nlc3N1cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/mpoublie.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcbXBvdWJsaWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/pointnature.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccG9pbnRuYXR1cmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/process.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccHJvY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/processus.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccHJvY2Vzc3VzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/profil.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccHJvZmlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/rapport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccmFwcG9ydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNccmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/suiviaudit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcc3VpdmlhdWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/maria/source/repos/EQMserme-lastbranch/EQMserme-lastbranch/EQmNEW/src/Activ.EQM/Activ.EQM.WebUI/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-30zggqbug7

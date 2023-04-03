@@ -1,0 +1,116 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.detailactionpointModel
+@{
+    ViewData["Title"] = "Detail Action Point page";
+}
+@section scripts {
+    <script type="text/javascript" src="~/js/Script.js"></script>
+}
+
+<!-- Default Basic Forms Start -->
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Plan action</h4>
+        </div>
+
+    </div>
+    <form>
+        <script>
+            let identifiant = sessionStorage.getItem("detail");
+
+            fetch('http://localhost:5000/ActionPoint/' + identifiant)
+                .then(res => res.json())
+                .then(data => {
+                    var a = `${data.title}`;
+                    var b = `${data.description}`;
+                    var c = `${data.actionPointLevel}`;
+                    var d = `${data.actionPointPriority}`;
+                    var e = `${data.thirdPartyProcessStep}`;
+                    var create = `${data.createBy}`;
+
+                    var auditId = `${data.auditId}`;
+                    var natureId = `${data.natureId}`;
+
+                    fetch('http://localhost:5000/ActionPointNature/' + natureId)
+                    .then(res => res.json())
+                    .then(data => {
+                        var naturetitle = `${data.title}`;
+                        document.getElementById("naturepoint").value = naturetitle;
+                    });
+
+                    fetch('http://localhost:5000/Audit/' + auditId)
+                        .then(res => res.json())
+                        .then(data => {
+                            var audittitle = `${data.title}`;
+                            document.getElementById("audit").value = audittitle;
+                        });
+
+                    document.getElementById("titre").value = a;
+                    document.getElementById("description").value = b;
+                    document.getElementById("niveau").value = c;
+                    document.getElementById("priorite").value = d;
+                    document.getElementById("thirdPartyProcessStep").value = d;
+                    document.getElementById("created").value = create;
+                });
+        </script>
+
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Point Nature</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="naturepoint" type="text">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Audit</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="audit" type="text">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Titre</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="titre" type="text">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Description</label>
+            <div class="col-sm-12 col-md-10">
+                <textarea class="form-control" id="description" rows="4" cols="112"></textarea>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Niveau</label>
+            <div class="col-sm-12 col-md-10">
+                <input type="text" id="niveau" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Priorité </label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="priorite" type="text">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Etape du processus tiers</label>
+            <div class="col-sm-12 col-md-10">
+                <input type="text" id="thirdPartyProcessStep" class="form-control">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Creer Par</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="created" type="text">
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="button" onclick="retour('actionpoint');" class="btn btn-danger btn-sm">Retour</button>
+        </div>
+
+    </form>
+</div>
+                           </div>
+                            </div>
+<!-- Default Basic Forms End -->

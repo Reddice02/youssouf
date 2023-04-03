@@ -1,0 +1,217 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.editauditModel
+@{
+    ViewData["Title"] = "edit audit page";
+}
+@section scripts {
+    <!--<script type="text/javascript" src="~/js/Script.js"></script>-->
+    <script type="text/javascript">
+
+        var identifiant = sessionStorage.getItem('modif');
+
+        
+
+        function modifier() {
+
+            var comboBox = document.getElementById("processus");
+            var selectedOption = comboBox.options[comboBox.selectedIndex];
+            var selectedId = selectedOption.getAttribute("attr.data-value");
+
+            var p = document.getElementById("processus").value;
+            var a = document.getElementById("titre").value;
+            var b = document.getElementById("description").value;
+            var c = document.getElementById("startDateExpected").value;
+            var d = document.getElementById("endDateExpected").value;
+            var e = document.getElementById("startDateExpected").value;
+            var f = document.getElementById("endDateExpected").value;
+            var g = document.getElementById("report").value;
+            var h = document.getElementById("reference").value;
+            var create = document.getElementById("created").value;
+
+            var data = {
+                ProcessID: parseInt(selectedId),
+                Title: a,
+                Description: b,
+                StartDateEffective: c,
+                EndDateEffective: d,
+                StartDateExpected: e,
+                EndDateExpected: f,
+                Report: g,
+                Reference: h,
+                CreateBy: create
+            }
+
+            console.log(data);
+
+            if (a != '' && selectedId != 0 && create != 0) {
+                let choix = confirm('Voulez vous vraiment modifier cet audit ?');
+                if (choix) {
+                    fetch('http://localhost:5000/Audit/' + identifiant, {
+                        method: 'PUT',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    alert("Modification reussi !");
+                    location.replace('https://localhost:7135/audit1');
+                }
+                else {
+                    alert("Modification annulée !");
+                    location.replace('https://localhost:7135/audit1');
+                }
+            }
+
+            else {
+                alert("Veillez renseigner correctement les champs");
+            }
+
+        }
+
+    </script>
+}
+
+                     
+<!-- Default Basic Forms Start -->
+<div class="pd-20 card-box mb-30">
+    <div class="clearfix">
+        <div class="pull-left">
+            <h4 class="text-blue h4">Audit</h4>
+        </div>
+
+    </div>
+    <form>
+        <script>
+
+            let ident = sessionStorage.getItem("modif");
+
+            fetch('http://localhost:5000/Audit/' + ident)
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+
+                    var a = `${data.title}`;
+                    var b = `${data.description}`;
+                    var c = `${data.startDateEffective}`;
+                    var d = `${data.endDateEffective}`;
+                    var e = `${data.startDateExpected}`;
+                    var f = `${data.endDateExpected}`;
+                    var g = `${data.report}`;
+                    var h = `${data.reference}`;
+                    var create = `${data.createBy}`;
+
+                    var dateOnly1 = c.substring(0, 10); // extrait la partie de la chaîne correspondant à la date (yyyy-MM-dd)
+                    var dateComponents1 = dateOnly1.split("-"); // sépare la date en ses composantes année, mois et jour
+                    var isoDate1 = dateComponents1[0] + "-" + dateComponents1[1] + "-" + dateComponents1[2]; // combine les composantes en une chaîne de caractères au format ISO "yyyy-MM-dd"
+
+                    var dateOnly2 = d.substring(0, 10);
+                    var dateComponents2 = dateOnly2.split("-");
+                    var isoDate2 = dateComponents2[0] + "-" + dateComponents2[1] + "-" + dateComponents2[2];
+
+                    var dateOnly3 = e.substring(0, 10);
+                    var dateComponents3 = dateOnly3.split("-");
+                    var isoDate3 = dateComponents3[0] + "-" + dateComponents3[1] + "-" + dateComponents3[2];
+
+                    var dateOnly4 = f.substring(0, 10);
+                    var dateComponents4 = dateOnly4.split("-");
+                    var isoDate4 = dateComponents4[0] + "-" + dateComponents4[1] + "-" + dateComponents4[2];
+
+
+                    document.getElementById("titre").value = a;
+                    document.getElementById("description").value = b;
+                    document.getElementById("startDateEffective").value = isoDate1;
+                    document.getElementById("endDateEffective").value = isoDate2;
+                    document.getElementById("startDateExpected").value = isoDate3;
+                    document.getElementById("endDateExpected").value = isoDate4;
+                    document.getElementById("report").value = g;
+                    document.getElementById("reference").value = h;
+                    document.getElementById("created").value = create;
+                });
+
+        </script>
+
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Processus</label>
+            <div class="col-sm-12 col-md-10">
+                <select class="form-control" id="processus">
+                    <!--<option>Selectionner un processus</option>-->
+
+                    <script type="text/javascript">
+                        let donnees = '';
+                        fetch('http://localhost:5000/Process')
+                            .then(res => res.json())
+                            .then(data => {
+                                for (let item of data) {
+                                    donnees += `<option attr.data-value=${item.processId}>${item.title}</option>`
+                                }
+                                document.getElementById('processus').innerHTML = donnees;
+                            })
+                    </script>
+
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Titre</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="titre" type="text">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Description</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="description" type="text" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Date de debut Effective</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="startDateEffective" type="date">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Date de Fin Effective</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="endDateEffective" type="date" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Date du debut prévu</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="startDateExpected" type="date">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Date de fin prévu</label>
+            <div class="col-sm-12 col-md-10">
+                <input class="form-control" id="endDateExpected" type="date" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Report</label>
+            <div class="col-sm-12 col-md-10">
+                <input type="text" id="report" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Reference</label>
+            <div class="col-sm-12 col-md-10">
+                <input type="text" id="reference" class="form-control">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-12 col-md-2 col-form-label">Cree par</label>
+            <div class="col-sm-12 col-md-10">
+                <input type="text" id="created" class="form-control">
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="button" onclick="modifier();" class="btn btn-primary btn-sm">Modifier</button>
+        </div>
+
+    </form>
+
+</div>
+                   </div>
+                    </div>
+<!-- Default Basic Forms End -->

@@ -1,0 +1,65 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.ajoutsuiviModel
+@{
+	ViewData["Title"] = "Suivi audit page";
+}
+@section scripts {
+    <!--<script type="text/javascript" src="~/js/Script.js"></script>-->
+    <script type="text/javascript">
+
+        function ajouter() {
+
+            
+
+        }
+        
+    </script>
+}
+
+
+<!-- Default Basic Forms Start -->
+				<div class="pd-20 card-box mb-30">
+					<div class="clearfix">
+						<div class="pull-left">
+							<h4 class="text-blue h4">Suivi audit</h4>
+						</div>
+						
+					</div>
+					<form>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Processus</label>
+							<div class="col-sm-12 col-md-10">
+								<input class="form-control"  id="processus" type="text" placeholder="processus">
+							</div>
+						</div>
+						
+						<div class="form-group row">
+				<label class="col-sm-12 col-md-2 col-form-label">Audit preparee</label>
+							<div class="col-sm-12 col-md-10">
+								<input class="form-control" id="auditp" type="text">
+							</div>
+						</div>
+						
+						<div class="form-group row">
+				<label class="col-sm-12 col-md-2 col-form-label">Audit realisee</label>
+							<div class="col-sm-12 col-md-10">
+								 <input type="text" id="auditr" class="form-control">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-sm-12 col-md-2 col-form-label">Plan action</label>
+							<div class="col-sm-12 col-md-10">
+								      <input type="text" id="planaction" class="form-control">
+							</div>
+						</div>
+						
+						     <div class="text-center">
+                                 <a class="btn btn-primary btn-sm  " asp-area="" asp-page="/ajoutsuivi" role="button">Ajouter</a>
+                                    <button type="button" onclick="ajouter();" class="btn btn-primary btn-sm">Enregistrer</button>
+                                </div>
+							
+</form>
+							
+						</div>
+					</div>
+				</div>

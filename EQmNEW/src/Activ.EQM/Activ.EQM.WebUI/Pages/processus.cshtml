@@ -1,0 +1,126 @@
+﻿@page
+@model Activ.EQM.WebUI.Pages.processusModel
+
+@{
+    ViewData["Title"] = "Processus page";
+}
+<link rel="stylesheet" type="text/css" href="~/vendors/styles/core.css">
+<link rel="stylesheet" type="text/css" href="~/vendors/styles/icon-font.min.css">
+<link rel="stylesheet" type="text/css" href="~/src/plugins/datatables/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="~/src/plugins/datatables/css/responsive.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="~/vendors/styles/style.css">
+
+
+@section scripts {
+    <script type="text/javascript" src="~/js/Script.js"></script>
+}
+
+<!--<script type="text/javascript">
+  function exportReportToExcel() {
+    let table = document.getElementsByID("table");
+    TableToExcel.convert(table[0], {
+      name: `file.xlsx`,
+      sheet: {
+        name: 'Sheet 1'
+      }
+    });
+  }
+</script>-->
+
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="title">
+                   
+                </div>
+                <nav aria-label="breadcrumb" role="navigation">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">Accueil</li>
+                        <li class="breadcrumb-item active" aria-current="page">Processus</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-md-6 col-sm-12 text-right">
+                <div class="dropdown">
+                    <a asp-area="" asp-page="/ajoutprocessus" class="btn btn-primary btn-sm" function=javascript:; role="button">
+                        <i class="fi-page-add">
+                        Ajouter
+                        </i>
+                    </a>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-box mb-30">
+        <div class="pd-20">
+            <h4 class="text-blue h4">Processus</h4><br/>
+        <!--<button class="btn btn-light" id="exporter" onclick="exportReportToExcel()">Exporter</button>-->
+           
+        </div>
+        <div class="pb-20">
+            <table class="table" id="table">
+                <thead>
+						<tr>
+                            <th class="table-plus datatable-nosort">Titre</th>
+						    <th>Description</th>
+                            <th>Participants</th>
+                            <th>Manager</th>
+                            <th>Date de creation</th>
+						    <th>Actions</th>
+						</tr>
+				</thead>
+                <tbody id="corps">
+								<script type="text/javascript">
+                                    let infos = '';
+                                    fetch('http://localhost:5000/Process')
+                                        .then(res => res.json())
+                                        .then(data => {
+                                            console.log(data);
+                                            for (let item of data) {
+                                    infos += <tr><td>${ item.title } </td><td>${item.description}</td > <td>${ item.participants } </td><td>${item.manager}</td > <td>${ item.created } </td><td><button Onclick="detail(${item.processId},'detailprocessus')" class="btn btn-light"> <i class="fi-list"> Détail </i> </button >& nbsp;<button class="btn btn-warning" Onclick = "modifier(${item.processId},'editprocessus')"> <i class="fi-page-edit"> Modifier</i> </button >& nbsp; <button class="btn btn-danger" Onclick = "supprimer('http:/ / localhost: 5000 / Process',${item.processId},'processus')" > <i class="fi-page-delete">Supprimer</i> </button></td > </tr>;
+                                            }
+                                            document.getElementById('corps').innerHTML = infos;
+                                            //place.innerHTML = infos;
+                                        });
+                                </script>
+                    <tr>
+                        <td>
+                          
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                       
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                          
+                        </td>
+                    </tr>
+                         <tr>
+                <td>
+                 
+                </td>
+                        </tr>
+                             <tr>
+                <td>
+                   
+                </td>
+                        </tr>
+                             <tr>
+                <td>
+                 
+                </td>
+                        </tr>
+                </tbody>
+						</table>
+					</div>
+				</div>
+    
+				<!-- Export Datatable End -->
+			
+    <!-- js -->
+    
+    

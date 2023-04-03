@@ -1,0 +1,32 @@
+﻿@page
+
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Create By</th>
+            <th>Created</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            /*var donnees = getdata("http://localhost:5000/Process");
+            @foreach(var item in donnees)
+            {
+                <tr>
+                    <td>item.Title</td>
+                    <td>item.CreateBy</td>
+                    <td>item.Created</td>
+                </tr>
+            }*/
+        }
+    </tbody>
+</table>
